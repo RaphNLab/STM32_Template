@@ -3,7 +3,6 @@ This template expose simple code for STM32L1 microcontroller.
 
 * Used Library:
     * Libopencm3
-    * FreeRTOS
 * Build system:
     * CMake
 
@@ -33,33 +32,33 @@ This template expose simple code for STM32L1 microcontroller.
             cp 49-stlinkv2.rules /etc/udev/rules.d/
         ```
 ## Update launch file
-    * Open the launch.json file and update the executable name, openocd config and .svd file if necessary
-    * Create new task if necessary
-    * Update CMakeList.txt  target device if necessary
-    * Init submodules libopencm3 and freeRTOS
-        ```
+ * Open the launch.json file and update the executable name, openocd config and .svd file if necessary
+ * Create new task if necessary
+ * Update CMakeList.txt  target device if necessary
+ * Init submodules libopencm3 and freeRTOS
+    {
         git submodule init
         git submodule update
-        ```
+    }
 
 # Build and Test
-    1. Open a new terminal
-    2. To create build directory with respective toolchain
-        * Run ``` cmake -DCMAKE_TOOLCHAIN_FILE=cmake/arm-gcc-toolchain.cmake -B build -B build ```
-    3. Configure FreeRTOS (FreeRTOSConfig.h) if nedded. 
-    4.	On a terminal
-        * Run cmake --build . --clean-first to clean an build the project
-        * Run cmake --build . --target flash to flash the CPU
-    5. On VS-Code 
-        * Run "clean&build" task to compile
-        * Run "flash" task to flash the CPU 
-        * Press F5 to start debugging session
-    6.	rum cmake... to flash the microcontroller
+ 1. Open a new terminal
+ 2. To create build directory with respective toolchain
+    * Run ``` cmake -DCMAKE_TOOLCHAIN_FILE=cmake/arm-gcc-toolchain.cmake -B build -B build ```
+ 3. Configure FreeRTOS (FreeRTOSConfig.h) if nedded. 
+ 4.	On a terminal
+    * Run cmake --build . --clean-first to clean an build the project
+    * Run cmake --build . --target flash to flash the CPU
+ 5. On VS-Code 
+    * Run "clean&build" task to compile
+    * Run "flash" task to flash the CPU 
+    * Press F5 to start debugging session
+ 6.	rum cmake... to flash the microcontroller
 
 # Run the code
-    * First you'll see the green LED On your board blinking. If nt, something whent wrong
-    * Onpen a serial port with 9600 baudrate
-    * Enter help or any invalid command to show the help menu
+  * First you'll see the green LED On your board blinking. If nt, something whent wrong
+  * Onpen a serial port with 9600 baudrate
+  * Enter help or any invalid command to show the help menu
 
 # Contribute
 If you desire to contribute to this project, clone the code and feel free to modify 
